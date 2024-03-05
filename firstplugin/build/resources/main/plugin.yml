@@ -1,0 +1,4 @@
+name: firstplugin
+version: '1.0-SNAPSHOT'
+main: com.test.firstplugin.Firstplugin
+api-version: '1.20'
