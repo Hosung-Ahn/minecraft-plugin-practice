@@ -1,0 +1,5 @@
+# server 폴더 내의 모든 파일 
+server/*
+
+!server/spigot.jar
+!server/start.bat
