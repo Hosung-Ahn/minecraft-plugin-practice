@@ -1,0 +1,4 @@
+name: firstplugin
+version: '${version}'
+main: com.test.firstplugin.Firstplugin
+api-version: '1.20'
