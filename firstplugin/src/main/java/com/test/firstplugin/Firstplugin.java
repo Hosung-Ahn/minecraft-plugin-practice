@@ -14,7 +14,9 @@ public final class Firstplugin extends JavaPlugin implements Listener {
     public void onEnable() {
 
 //        getServer().getPluginManager().registerEvents(new Events(), this);
-        getServer().getPluginManager().registerEvents(this, this);
+//        getServer().getPluginManager().registerEvents(this, this);
+
+        getCommand("heal").setExecutor(new HealCommand());
     }
 
     @EventHandler

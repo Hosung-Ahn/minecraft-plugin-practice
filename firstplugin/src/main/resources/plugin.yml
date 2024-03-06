@@ -2,3 +2,7 @@ name: firstplugin
 version: '${version}'
 main: com.test.firstplugin.Firstplugin
 api-version: '1.20'
+commands:
+  heal:
+    description: Heal command
+    usage: /<command>
