@@ -16,7 +16,12 @@ public final class Firstplugin extends JavaPlugin implements Listener {
 //        getServer().getPluginManager().registerEvents(new Events(), this);
 //        getServer().getPluginManager().registerEvents(this, this);
 
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
         getCommand("heal").setExecutor(new HealCommand());
+
+        getCommand("config").setExecutor(new ConfigCommand(this));
     }
 
     @EventHandler

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.test.firstplugin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.test.firstplugin.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/firstplugin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/firstplugin.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/minecraft-plugin-practice.firstplugin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/minecraft-plugin-practice.firstplugin.main.iml" />
     </modules>
   </component>
 </project>

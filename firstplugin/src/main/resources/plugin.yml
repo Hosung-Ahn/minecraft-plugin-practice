@@ -6,3 +6,6 @@ commands:
   heal:
     description: Heal command
     usage: /<command>
+  config:
+    description: Config command
+    usage: /<command>
