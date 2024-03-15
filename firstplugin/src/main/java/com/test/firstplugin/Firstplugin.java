@@ -22,6 +22,8 @@ public final class Firstplugin extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
 
         getCommand("config").setExecutor(new ConfigCommand(this));
+
+        Bukkit.getWorld("world").spawnEntity(Bukkit.getWorld("world").getSpawnLocation(), EntityType.CREEPER);
     }
 
     @EventHandler
