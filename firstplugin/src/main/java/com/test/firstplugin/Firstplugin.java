@@ -20,46 +20,47 @@ public final class Firstplugin extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-
+        getServer().getPluginManager().registerEvents(new BossBarEvent(), this);
+//        getServer().getPluginManager().registerEvents(new TitleEvent(), this);
 //        getServer().getPluginManager().registerEvents(new Events(), this);
 //        getServer().getPluginManager().registerEvents(this, this);
 
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
-
-        getCommand("heal").setExecutor(new HealCommand());
-
-        getCommand("config").setExecutor(new ConfigCommand(this));
-
-        Bukkit.getWorld("world").spawnEntity(Bukkit.getWorld("world").getSpawnLocation(), EntityType.CREEPER);
+//        getConfig().options().copyDefaults();
+//        saveDefaultConfig();
+//
+//        getCommand("heal").setExecutor(new HealCommand());
+//
+//        getCommand("config").setExecutor(new ConfigCommand(this));
+//
+//        Bukkit.getWorld("world").spawnEntity(Bukkit.getWorld("world").getSpawnLocation(), EntityType.CREEPER);
     }
 
-    @EventHandler
-    public void onPlayerMove(PlayerMoveEvent event) {
-        event.setCancelled(true);
-        event.getPlayer().sendMessage(ChatColor.RED + "You can't move!");
-    }
-
-    @EventHandler
-    public void onPlayerEggThrow(PlayerEggThrowEvent event) {
-        event.setHatching(false);
-        event.getPlayer().sendMessage(ChatColor.RED + "You can't throw eggs!");
-    }
-
-    @EventHandler
-    public void onEntitySpawn(CreeperPowerEvent event) {
-        ItemStack item = new ItemStack(Material.DIAMOND);
-        ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(ChatColor.RED + "Explosive Diamond");
-        item.setItemMeta(meta);
-
-        Bukkit.getWorld("world").getBlockAt(new Location(Bukkit.getWorld("world"), 0, 0, 0)).setType(Material.DIAMOND_BLOCK);
-
-        ItemStack book = new ItemStack(Material.BOOK);
-        BookMeta bookMeta = (BookMeta) book.getItemMeta();
-        bookMeta.setAuthor("Notch");
-        bookMeta.setTitle("The Book of Notch");
-        bookMeta.setPages("Page 1", "Page 2", "Page 3");
-        book.setItemMeta(bookMeta);
-    }
+//    @EventHandler
+//    public void onPlayerMove(PlayerMoveEvent event) {
+//        event.setCancelled(true);
+//        event.getPlayer().sendMessage(ChatColor.RED + "You can't move!");
+//    }
+//
+//    @EventHandler
+//    public void onPlayerEggThrow(PlayerEggThrowEvent event) {
+//        event.setHatching(false);
+//        event.getPlayer().sendMessage(ChatColor.RED + "You can't throw eggs!");
+//    }
+//
+//    @EventHandler
+//    public void onEntitySpawn(CreeperPowerEvent event) {
+//        ItemStack item = new ItemStack(Material.DIAMOND);
+//        ItemMeta meta = item.getItemMeta();
+//        meta.setDisplayName(ChatColor.RED + "Explosive Diamond");
+//        item.setItemMeta(meta);
+//
+//        Bukkit.getWorld("world").getBlockAt(new Location(Bukkit.getWorld("world"), 0, 0, 0)).setType(Material.DIAMOND_BLOCK);
+//
+//        ItemStack book = new ItemStack(Material.BOOK);
+//        BookMeta bookMeta = (BookMeta) book.getItemMeta();
+//        bookMeta.setAuthor("Notch");
+//        bookMeta.setTitle("The Book of Notch");
+//        bookMeta.setPages("Page 1", "Page 2", "Page 3");
+//        book.setItemMeta(bookMeta);
+//    }
 } 
