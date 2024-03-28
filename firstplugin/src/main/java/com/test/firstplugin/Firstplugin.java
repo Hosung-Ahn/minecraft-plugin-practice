@@ -18,7 +18,7 @@ public final class Firstplugin extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new PotionEffectEvent(), this);
+        getServer().getPluginManager().registerEvents(new SoundEvent(), this);
 //        getServer().getPluginManager().registerEvents(new TitleEvent(), this);
 //        getServer().getPluginManager().registerEvents(new Events(), this);
 //        getServer().getPluginManager().registerEvents(this, this);
