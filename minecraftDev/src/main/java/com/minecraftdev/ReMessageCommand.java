@@ -6,8 +6,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class ReplyCommand implements CommandExecutor {
-    // /reply {message}
+public class ReMessageCommand implements CommandExecutor {
+    // /remessage {message}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,6 +19,7 @@ public class ReplyCommand implements CommandExecutor {
             player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
             return false;
         }
+        String message = buildMessage(args);
 
         return false;
     }

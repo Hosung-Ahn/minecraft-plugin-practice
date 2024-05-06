@@ -8,7 +8,7 @@ public final class MinecraftDev extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("message").setExecutor(new MessageCommand());
-        getCommand("reply").setExecutor(new ReplyCommand());
+        getCommand("remessage").setExecutor(new ReMessageCommand());
     }
 
     @Override
