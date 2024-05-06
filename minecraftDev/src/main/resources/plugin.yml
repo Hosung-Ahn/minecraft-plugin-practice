@@ -1,0 +1,4 @@
+name: minecraftDev
+version: '${version}'
+main: com.minecraftdev.MinecraftDev
+api-version: '1.20'
