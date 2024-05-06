@@ -11,15 +11,33 @@ public class ReplyCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
 
-            if (args.length == 1) {
-            } else {
-                player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
-            }
+        if (!isPlayer(sender)) return false;
+        Player player = (Player) sender;
+
+        if (!isInvalidUsage(args)) {
+            player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
+            return false;
         }
 
         return false;
     }
+
+    private boolean isPlayer(CommandSender sender) {
+        return sender instanceof Player;
+    }
+
+    private boolean isInvalidUsage(String[] args) {
+        return args.length >= 1;
+    }
+
+    private String buildMessage(String[] args) {
+        StringBuilder message = new StringBuilder();
+        for (int i = 0; i < args.length; i++) {
+            message.append(args[i]).append(" ");
+        }
+        return message.toString();
+    }
+
+
 }
