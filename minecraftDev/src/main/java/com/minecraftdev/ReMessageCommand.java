@@ -34,7 +34,8 @@ public class ReMessageCommand implements CommandExecutor {
             player.sendMessage(ChatColor.RED + "Player not found!");
             return false;
         }
-        player.sendMessage(ChatColor.GRAY + "[me -> " + target.getName() + "] " + message);
+        player.sendMessage(ChatColor.GREEN + "[me -> " + target.getName() + "] " + ChatColor.GRAY + message);
+        target.sendMessage(ChatColor.GREEN + "[" + player.getName() + " -> me] " + ChatColor.GRAY + message);
 
         return false;
     }

@@ -28,8 +28,8 @@ public class MessageCommand implements CommandExecutor {
             return false;
         }
 
-        player.sendMessage(ChatColor.GRAY + "[me -> " + target.getName() + "] " + message);
-        target.sendMessage(ChatColor.GRAY + "[" + player.getName() + " -> me] " + message);
+        player.sendMessage(ChatColor.GREEN + "[me -> " + target.getName() + "] " + ChatColor.GRAY + message);
+        target.sendMessage(ChatColor.GREEN + "[" + player.getName() + " -> me] " + ChatColor.GRAY + message);
         RecentMessageFactory.setRecentMessage(player.getUniqueId(), target.getUniqueId());
 
         return true;
