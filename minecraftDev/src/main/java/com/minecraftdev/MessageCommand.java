@@ -14,17 +14,16 @@ public class MessageCommand implements CommandExecutor {
         if (!isPlayer(sender)) return false;
         Player player = (Player) sender;
 
-        if (!isInvalidUsage(args)) {
+        if (invalidUsage(args)) {
             player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
             return false;
         }
-
         String playerName = args[0];
         String message = buildMessage(args);
+
         // 플레이어 이름과 정확히 일치하는 온라인 유저만 가져온다.
         Player target = Bukkit.getPlayerExact(playerName);
-
-        if (player == null) {
+        if (inValidPlayer(target)) {
             player.sendMessage(ChatColor.RED + "Player not found!");
             return false;
         }
@@ -39,8 +38,8 @@ public class MessageCommand implements CommandExecutor {
         return sender instanceof Player;
     }
 
-    private boolean isInvalidUsage(String[] args) {
-        return args.length >= 2;
+    private boolean invalidUsage(String[] args) {
+        return args.length < 2;
     }
 
     private String buildMessage(String[] args) {
@@ -49,5 +48,9 @@ public class MessageCommand implements CommandExecutor {
             message.append(args[i]).append(" ");
         }
         return message.toString();
+    }
+
+    private boolean inValidPlayer(Player player) {
+        return player != null;
     }
 }
