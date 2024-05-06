@@ -11,25 +11,36 @@ public class MessageCommand implements CommandExecutor {
     // /message {player name} {message}
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+        if (!isPlayer(sender)) return false;
+        Player player = (Player) sender;
 
-            if (args.length >= 2) {
-                String playerName = args[0];
-                String message = buildMessage(args);
-                Player target = Bukkit.getPlayerExact(playerName);
-
-                if (target != null) {
-                    player.sendMessage(ChatColor.GRAY + "[me -> " + target.getName() + "] " + message);
-                    target.sendMessage(ChatColor.GRAY + "[" + player.getName() + " -> me] " + message);
-                } else {
-                    player.sendMessage(ChatColor.RED + "Player not found!");
-                }
-            } else {
-                player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
-            }
+        if (!isInvalidUsage(args)) {
+            player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
+            return false;
         }
-        return false;
+
+        String playerName = args[0];
+        String message = buildMessage(args);
+        // 플레이어 이름과 정확히 일치하는 온라인 유저만 가져온다.
+        Player target = Bukkit.getPlayerExact(playerName);
+
+        if (player == null) {
+            player.sendMessage(ChatColor.RED + "Player not found!");
+            return false;
+        }
+
+        player.sendMessage(ChatColor.GRAY + "[me -> " + target.getName() + "] " + message);
+        target.sendMessage(ChatColor.GRAY + "[" + player.getName() + " -> me] " + message);
+
+        return true;
+    }
+
+    private boolean isPlayer(CommandSender sender) {
+        return sender instanceof Player;
+    }
+
+    private boolean isInvalidUsage(String[] args) {
+        return args.length >= 2;
     }
 
     private String buildMessage(String[] args) {
