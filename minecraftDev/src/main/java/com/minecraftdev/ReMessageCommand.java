@@ -30,6 +30,10 @@ public class ReMessageCommand implements CommandExecutor {
 
         UUID uuid = RecentMessageFactory.getRecentMessage(player.getUniqueId());
         Player target = player.getServer().getPlayer(uuid);
+        if (inValidPlayer(target)) {
+            player.sendMessage(ChatColor.RED + "Player not found!");
+            return false;
+        }
         player.sendMessage(ChatColor.GRAY + "[me -> " + target.getName() + "] " + message);
 
         return false;
@@ -53,6 +57,10 @@ public class ReMessageCommand implements CommandExecutor {
             message.append(args[i]).append(" ");
         }
         return message.toString();
+    }
+
+    private boolean inValidPlayer(Player player) {
+        return player == null;
     }
 
 

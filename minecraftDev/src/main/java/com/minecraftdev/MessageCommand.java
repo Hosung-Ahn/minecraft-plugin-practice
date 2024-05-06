@@ -52,6 +52,6 @@ public class MessageCommand implements CommandExecutor {
     }
 
     private boolean inValidPlayer(Player player) {
-        return player != null;
+        return player == null;
     }
 }
