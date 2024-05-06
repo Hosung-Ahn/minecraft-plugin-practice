@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class RecentMessageFactory {
+    private RecentMessageFactory() {
+    }
+
     private static final HashMap<UUID, UUID> recentMessage = new HashMap<>();
 
     public static void setRecentMessage(UUID sender, UUID receiver) {
