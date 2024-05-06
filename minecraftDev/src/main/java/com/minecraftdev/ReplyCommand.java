@@ -13,7 +13,7 @@ public class ReplyCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            
+
             if (args.length == 1) {
             } else {
                 player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
