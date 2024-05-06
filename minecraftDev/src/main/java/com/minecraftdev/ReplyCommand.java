@@ -15,7 +15,7 @@ public class ReplyCommand implements CommandExecutor {
         if (!isPlayer(sender)) return false;
         Player player = (Player) sender;
 
-        if (!isInvalidUsage(args)) {
+        if (invalidUsage(args)) {
             player.sendMessage(ChatColor.RED + "Invalid usage! /message {player name} {message}");
             return false;
         }
@@ -27,8 +27,8 @@ public class ReplyCommand implements CommandExecutor {
         return sender instanceof Player;
     }
 
-    private boolean isInvalidUsage(String[] args) {
-        return args.length >= 1;
+    private boolean invalidUsage(String[] args) {
+        return args.length < 1;
     }
 
     private String buildMessage(String[] args) {
