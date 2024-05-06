@@ -6,6 +6,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class ReMessageCommand implements CommandExecutor {
     // /remessage {message}
 
@@ -21,6 +23,15 @@ public class ReMessageCommand implements CommandExecutor {
         }
         String message = buildMessage(args);
 
+        if (!existsRecentMessage(player)) {
+            player.sendMessage(ChatColor.RED + "No recent message!");
+            return false;
+        }
+
+        UUID uuid = RecentMessageFactory.getRecentMessage(player.getUniqueId());
+        Player target = player.getServer().getPlayer(uuid);
+        player.sendMessage(ChatColor.GRAY + "[me -> " + target.getName() + "] " + message);
+
         return false;
     }
 
@@ -30,6 +41,10 @@ public class ReMessageCommand implements CommandExecutor {
 
     private boolean invalidUsage(String[] args) {
         return args.length < 1;
+    }
+
+    private boolean existsRecentMessage(Player player) {
+        return RecentMessageFactory.existsRecentMessage(player.getUniqueId());
     }
 
     private String buildMessage(String[] args) {
