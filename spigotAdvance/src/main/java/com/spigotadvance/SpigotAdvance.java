@@ -11,6 +11,11 @@ public final class SpigotAdvance extends JavaPlugin {
 
     @Override
     public void onEnable() {
+//        runTask();
+        
+    }
+
+    private void runTask() {
         // 30초 후에 모든 플레이어에게 메시지를 보냅니다.
         Bukkit.getScheduler().runTaskLater(this, () -> {
             for (Player player : Bukkit.getOnlinePlayers()) {
