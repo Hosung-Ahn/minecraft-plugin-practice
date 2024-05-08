@@ -1,5 +1,6 @@
 package com.spigotadvance;
 
+import com.spigotadvance.gui.MenuCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,8 +13,9 @@ public final class SpigotAdvance extends JavaPlugin {
     @Override
     public void onEnable() {
 //        runTask();
-        
+        getCommand("menu").setExecutor(new MenuCommand());
     }
+
 
     private void runTask() {
         // 30초 후에 모든 플레이어에게 메시지를 보냅니다.
