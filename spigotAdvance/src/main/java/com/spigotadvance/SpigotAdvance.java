@@ -1,6 +1,7 @@
 package com.spigotadvance;
 
 import com.spigotadvance.gui.MenuCommand;
+import com.spigotadvance.gui.MenuListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,6 +15,8 @@ public final class SpigotAdvance extends JavaPlugin {
     public void onEnable() {
 //        runTask();
         getCommand("menu").setExecutor(new MenuCommand());
+        Bukkit.getPluginManager().registerEvents(new MenuListener(), this);
+
     }
 
 
