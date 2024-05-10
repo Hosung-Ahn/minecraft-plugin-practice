@@ -3,6 +3,7 @@ package com.playground;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ public class FruitTab implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1) {
+//            return StringUtil.copyPartialMatches(args[0], fruits, new ArrayList<>());
+
             String input = args[0];
             List<String> result = new ArrayList<>();
             for (String fruit : fruits) {
