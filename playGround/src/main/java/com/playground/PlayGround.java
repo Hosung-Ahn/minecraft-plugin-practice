@@ -1,5 +1,7 @@
 package com.playground;
 
+import com.playground.commandTabComplete.FruitCommand;
+import com.playground.commandTabComplete.FruitTab;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class PlayGround extends JavaPlugin {
