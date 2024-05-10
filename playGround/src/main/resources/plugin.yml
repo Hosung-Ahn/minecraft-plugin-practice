@@ -1,0 +1,6 @@
+name: playGround
+version: '${version}'
+main: com.playground.PlayGround
+api-version: '1.20'
+commands:
+  fruit:
