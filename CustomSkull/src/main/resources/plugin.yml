@@ -1,0 +1,4 @@
+name: CustomSkull
+version: '${version}'
+main: com.test.customskull.CustomSkull
+api-version: '1.20'
