@@ -7,7 +7,7 @@ public final class CustomSkull extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-
+        getCommand("skull").setExecutor(new SkullCommand());
     }
 
     @Override
