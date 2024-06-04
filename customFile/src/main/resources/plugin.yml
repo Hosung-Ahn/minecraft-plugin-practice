@@ -1,0 +1,4 @@
+name: customFile
+version: '${version}'
+main: com.test.customfile.CustomFile
+api-version: '1.20'
