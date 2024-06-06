@@ -1,5 +1,6 @@
 package com.test.customfile;
 
+import com.test.customfile.CustomMap.MapOpenListener;
 import com.test.customfile.jsonUtil.Data;
 import com.test.customfile.jsonUtil.JsonUtil;
 import org.bukkit.Bukkit;
@@ -35,6 +36,8 @@ public final class CustomFile extends JavaPlugin {
         JsonUtil.write(new Data("John", 25), getDataFolder());
         Data data = JsonUtil.read(Data.class, getDataFolder());
         System.out.println(data);
+
+        Bukkit.getPluginManager().registerEvents(new MapOpenListener(), this);
     }
 
     @Override
