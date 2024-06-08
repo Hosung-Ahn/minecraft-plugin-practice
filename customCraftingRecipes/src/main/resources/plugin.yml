@@ -1,0 +1,4 @@
+name: customCraftingRecipes
+version: '${version}'
+main: com.test.customcraftingrecipes.CustomCraftingRecipes
+api-version: '1.20'
