@@ -1,0 +1,4 @@
+name: cannonStick
+version: '${version}'
+main: com.test.cannonstick.CannonStick
+api-version: '1.20'
