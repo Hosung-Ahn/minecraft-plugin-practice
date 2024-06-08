@@ -12,6 +12,7 @@ public final class CannonStick extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // cannon stick recipe
         ItemStack cannonStick = new ItemStackBuilder(Material.STICK)
                 .displayName(Name.CANNON_STICK.getName())
                 .lore(List.of("Right click to shoot a fireball!"))
@@ -26,6 +27,9 @@ public final class CannonStick extends JavaPlugin {
         recipe.setIngredient('S', Material.STICK);
 
         getServer().addRecipe(recipe);
+
+        // listener registration
+        getServer().getPluginManager().registerEvents(new CannonShotListener(), this);
     }
 
     @Override
