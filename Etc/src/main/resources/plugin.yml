@@ -1,0 +1,4 @@
+name: Etc
+version: '${version}'
+main: com.test.etc.Etc
+api-version: '1.20'
